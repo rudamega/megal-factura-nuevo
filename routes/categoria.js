@@ -12,11 +12,11 @@ const {
 const router = Router();
 
 router.post("/add", categoriaAdd);
-router.get("/query", categoriaQuery);
-router.get("/list", categoriaList);
-router.put("/", categoriaUpdate);
-router.delete("/", categoriaRemove);
-router.put("/activate", categoriaActivate);
-router.put("/deactivate", categoriaDeactivate);
+router.get("/:id", categoriaQuery);
+router.get("/", categoriaList);
+router.put("/:id", categoriaUpdate);
+router.delete("/:id", categoriaRemove);
+router.put("/activate/:id", categoriaActivate);
+router.put("/deactivate/:id", categoriaDeactivate);
 
 module.exports = router;
