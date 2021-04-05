@@ -10,6 +10,23 @@
 
 <body>
     <h1>Hola Mundo</h1>
+    <button id="print"> hola</button>
 </body>
 
 </html>
+
+<script>
+    const ThermalPrinter = require("node-thermal-printer").printer;
+    const PrinterTypes = require("node-thermal-printer").types;
+
+    let printer = new ThermalPrinter({
+        type: PrinterTypes.EPSON,
+        interface: 'tcp://192.168.0.80:9100'
+    });
+
+    const print = document.getElementById("print");
+
+    print.addEventListener("click", async() => {
+        let isConnected = await printer.isPrinterConnected();
+    })
+</script>
